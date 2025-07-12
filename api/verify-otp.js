@@ -41,5 +41,5 @@ export default async function handler(req, res) {
   }
 
   // OTP verified, you can now proceed (mark user as verified)
-  res.status(200).json({ message: 'OTP verified successfully' });
+  res.status(200).json({ message: 'Email verified successfully' });
 }
