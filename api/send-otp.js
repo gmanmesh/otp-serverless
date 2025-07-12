@@ -25,7 +25,7 @@ export default async function handler(req, res) {
   // Store OTP in Supabase with expiration (15 minutes)
   const { data, error } = await supabase
     .from('otp-codes')
-    .insert([{ email, otp, created_at: new Date().toISOString(), expires_at: new Date(Date.now() + 15 * 60000).toISOString() }]);
+    .insert([{ email, otp, created_at: NOW()::timestamp, expires_at: NOW() + INTERVAL '15 minutes' }]);
 
   if (error) {
     console.error('Supabase insert error:', error);
