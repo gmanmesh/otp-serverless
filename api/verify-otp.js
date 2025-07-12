@@ -1,8 +1,8 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_API_KEY = process.env.SUPABASE_API_KEY;
+const SUPABASE_URL=process.env.SUPABASE_URL;
+const SUPABASE_API_KEY=process.env.SUPABASE_API_KEY;
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
 
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
   // Fetch OTP from Supabase
   const { data, error } = await supabase
-    .from('otp_codes')
+    .from('otp-codes')
     .select('*')
     .eq('email', email)
     .order('created_at', { ascending: false })
