@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        sender: { name: 'Alerta App', email: 'ethiodigitalacademy@gmail.com' },
+        sender: { name: 'Ethio Digital Academy', email: 'ethiodigitalacademy@gmail.com' },
         to: [{ email }],
         subject: 'Your Verification Code',
         htmlContent: `<p>Your Alerta verification code is <b>${otp}</b></p>`,
