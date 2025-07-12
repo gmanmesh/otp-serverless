@@ -19,20 +19,12 @@ export default async function handler(req, res) {
     res.status(400).json({ error: 'Email is required' });
     return;
   }
-
   // Generate a 6-digit OTP
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-  console.log('Inserting OTP data:', {
-  email,
-  otp,
-  created_at: new Date().toISOString(),
-  expires_at: new Date(Date.now() + 15 * 60000).toISOString()
-});
-
   // Store OTP in Supabase with expiration (15 minutes)
   const { data, error } = await supabase
-    .from('otp_codes')
+    .from('otp-codes')
     .insert([{ email, otp, created_at: new Date().toISOString(), expires_at: new Date(Date.now() + 15 * 60000).toISOString() }]);
 
   if (error) {
