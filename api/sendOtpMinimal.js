@@ -1,12 +1,10 @@
-/*import { createClient } from '@supabase/supabase-js';
-import fetch from 'node-fetch';
+import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_API_KEY = process.env.SUPABASE_API_KEY;
-const BREVO_API_KEY = process.env.BREVO_API_KEY;
+const SUPABASE_URL=process.env.SUPABASE_URL;
+const SUPABASE_API_KEY=process.env.SUPABASE_API_KEY;
+const BREVO_API_KEY=process.env.BREVO_API_KEY;
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
-*/
 
 export default async function handler(req, res) {
   console.log('Handler start');
