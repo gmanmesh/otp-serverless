@@ -23,6 +23,13 @@ export default async function handler(req, res) {
   // Generate a 6-digit OTP
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
+  console.log('Inserting OTP data:', {
+  email,
+  otp,
+  created_at: new Date().toISOString(),
+  expires_at: new Date(Date.now() + 15 * 60000).toISOString()
+});
+
   // Store OTP in Supabase with expiration (15 minutes)
   const { data, error } = await supabase
     .from('otp_codes')
