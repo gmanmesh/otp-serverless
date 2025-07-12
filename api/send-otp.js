@@ -8,6 +8,7 @@ const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
 
 export default async function handler(req, res) {
+try {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method Not Allowed' });
     return;
@@ -60,5 +61,9 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('Error sending email:', err);
     res.status(500).json({ error: 'Error sending email' });
+  }
+} catch (err) {
+    console.error('Error in handler:', err);
+    res.status(500).json({ error: 'Internal Server Error', details: err.message });
   }
 }
