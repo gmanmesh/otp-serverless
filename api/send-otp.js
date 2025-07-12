@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
   if (error) {
     console.error('Supabase insert error:', error);
-    res.status(500).json({ error: 'Failed to store OTP', details:error.message });
+    res.status(500).json({ error: 'Failed to store OTP'+error.message });
     return;
   }
 
