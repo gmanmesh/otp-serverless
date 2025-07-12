@@ -1,4 +1,3 @@
-
 export default async function handler(req, res) {
   console.log('Handler start');
 
@@ -22,7 +21,6 @@ export default async function handler(req, res) {
     // Generate OTP
     //const otp = Math.floor(100000 + Math.random() * 900000).toString();
     //console.log('Generated OTP:', otp);
-
    
   } catch (err) {
     console.error('Handler error:', err);
