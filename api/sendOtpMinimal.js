@@ -32,5 +32,5 @@ export default async function handler(req, res) {
     const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
     console.log('Preparing database insert')
     
-    res.status(200).json({ message:"Successfully Started", email: email, otpGenerated:otp});
+    res.status(200).json({ message:"Successfully Started", email: email, otpGeneratedNEW:otp});
 }
