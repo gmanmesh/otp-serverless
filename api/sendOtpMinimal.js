@@ -14,5 +14,14 @@ export default async function handler(req, res) {
       res.status(400).json({ error: 'Email is required' });
       return;
     }
-  res.status(200).json({ message:"Successfully Started", email: email});
+  // Generate OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    console.log('Generated OTP:', otp);
+
+    // Insert into database
+    const createdAt = new Date();
+    const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
+    console.log('Preparing database insert')
+    
+    res.status(200).json({ message:"Successfully Started", email: email, otpGenerated:otp});
 }
